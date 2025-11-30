@@ -3,14 +3,13 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import HomeScreen from './src/screens/HomeScreen';
+import AppNavigator from './src/navigation/AppNavigator';
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
         <StatusBar style="auto" />
-        <HomeScreen />
-      </SafeAreaView>
+        <AppNavigator />
     </SafeAreaProvider>
   );
 }
@@ -18,7 +17,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#233',
     alignItems: 'center',
     justifyContent: 'center',
   },
