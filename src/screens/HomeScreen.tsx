@@ -1,11 +1,23 @@
 import { View, Text, StyleSheet} from 'react-native'
 import React from 'react'
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../types/navigation';
+import ExpenseForm from '../components/ExpenseForm';
 
-const HomeScreen = () => {
+type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+
+
+const HomeScreen = ({ navigation }: Props) => {
+
+    const handleAddExpense = (title: string, amount: string) => {
+        // Burada harcamayı kaydetme işlemi yapılabilir
+        console.log(`Yeni Harcama - Başlık: ${title}, Tutar: ${amount}`);
+        alert(`Yeni Harcama Eklendi!\nBaşlık: ${title}\nTutar: ${amount}`);
+    };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Burası src/screens/HomeScreen.tsx</Text>
-      <Text style={styles.subText}>Mimari Kurulum Başarılı!</Text>
+        <ExpenseForm onAddExpense={handleAddExpense} />
     </View>
   );
 };
